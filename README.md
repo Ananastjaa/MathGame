@@ -6,7 +6,7 @@
 
 To install **Auzraujoša matemātika**, follow these steps:
 
-1. Click on the following link: [Download Auzraujoša matemātika](link_to_download_page).
+1. Click on the following link: [Download Auzraujoša matemātika](https://failiem.lv/f/2vu69qjnga).
 
 2. Download the repository.
 
