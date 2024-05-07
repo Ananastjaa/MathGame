@@ -50,14 +50,14 @@ After successful authentication, the player will see the game menu interface, wi
 4. Close the game
 5. Start the game
 
-![Menu Interface](menu_interface_image_url)
+![Menu Interface](Pictures/Menu.png)
 
 By clicking the "Start Game" button (5), the player can choose one of the three levels and start the game. Then he will see the game interface, which includes:
 
 6. Active player that can be controlled using arrow keys (left, right)
 7. Pause button
 
-![Game Interface](game_interface_image_url)
+![Game Interface](Pictures/Game.png)
 
 By clicking on pause, the player can:
 
@@ -65,18 +65,18 @@ By clicking on pause, the player can:
 9. Restart
 10. Go back to the menu
 
-![Pause Interface](pause_interface_image_url)
+![Pause Interface](Pictures/Pause.png)
 
 At the end of the game (whether the player wins or loses), he will see his results and can:
 
 11. Restart the same level
 12. Return to the menu
 
-![End Game Interface](end_game_interface_image_url)
+![End Game Interface](Pictures/EndGame.png)
 
 ## Game State Diagram
 
-![Game State Diagram](diagram.png)
+![Game State Diagram](Pictures/Diagram.png)
 
 ## Authors
 
