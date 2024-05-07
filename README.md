@@ -14,7 +14,7 @@ To install **Auzraujoša matemātika**, follow these steps:
 
 4. Open the unzipped folder.
 
-5. Run the "Math Game" file to start playing the game.
+5. In folder Game_1.1.0 run the "Math Game" file to start playing the game.
 
 ## Gameplay
 
