@@ -22,7 +22,7 @@ In **Auzraujoša matemātika**, players control a character who jumps across pla
 
 Throughout the game, players continuously solve addition, subtraction, multiplication, and division examples to know which platform to jump to avoid falling. Player can choose which types of examples he want to solve (+ - * /). Different levels may introduce challenges that require players to solve examples faster and faster.
 
-The game is dynamic, helping children develop mental calcilation skills while also develops reaction and logical thinking. Players must strategize to reach the correct platform without touching the one with the wrong answer.
+The game is dynamic, helping children develop mental calculation skills while also develops reaction and logical thinking. Players must strategize to reach the correct platform without touching the one with the wrong answer.
 
 ## Features
 
