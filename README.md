@@ -1,4 +1,4 @@
-# Auzraujoša matemātika
+  # Auzraujoša matemātika
 
 **Auzraujoša matemātika** is an educational computer game designed for elementary school children. It is a platformer game created to help children develop counting skills in an engaging and interactive way. The game is built using *Unity* game engine.
 
@@ -64,7 +64,7 @@ By clicking the "Start Game" button (5), the player can choose one of the three 
 13. points counter
 14. coin counter
 
-![Game Interface](Pictures/Game.png)
+![Game Interface](Pictures/GameUI.png)
 
 By clicking on pause, the player can:
 
@@ -72,14 +72,15 @@ By clicking on pause, the player can:
 16. Restart
 17. Go back to the menu
 
-![Pause Interface](Pictures/Pause.png)
+![Pause Interface](Pictures/PauseUI.png)
 
 At the end of the game (whether the player wins or loses), he will see his results and can:
 
 18. Restart the same level
 19. Return to the menu
+20. See results
 
-![End Game Interface](Pictures/EndGame.png)
+![End Game Interface](Pictures/EndGameUI.png)
 
 ## Game State Diagram
 
