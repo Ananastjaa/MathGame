@@ -56,21 +56,28 @@ By clicking the "Start Game" button (5), the player can choose one of the three 
 
 6. Active player that can be controlled using arrow keys (left, right)
 7. Pause button
+8. cloud with an example that needs to be solved
+9. regular platform (no answers)
+10. platforms with incorrect answers
+11. platform with the correct answer
+12. time counter
+13. points counter
+14. coin counter
 
 ![Game Interface](Pictures/Game.png)
 
 By clicking on pause, the player can:
 
-8. Continue the game
-9. Restart
-10. Go back to the menu
+15. Continue the game
+16. Restart
+17. Go back to the menu
 
 ![Pause Interface](Pictures/Pause.png)
 
 At the end of the game (whether the player wins or loses), he will see his results and can:
 
-11. Restart the same level
-12. Return to the menu
+18. Restart the same level
+19. Return to the menu
 
 ![End Game Interface](Pictures/EndGame.png)
 
