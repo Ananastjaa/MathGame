@@ -1,0 +1,93 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int N = 100;
+
+string linearSearch(int num, int array[], int arraySize) {
+    int i, iterationCount = 0;
+    string result = "Skaitlis masiivaa netika atrasts";
+
+    for (i = 0; i < arraySize && array[i] != num; i++) iterationCount++;
+
+    if (array[i] == num) result = "Skaitlis masiivaa atrasts - vieta ar indeksu " + to_string(i) + "\nIteraaciju skaits: " + to_string(iterationCount) + "\n";
+
+    return result;
+}
+
+string linearSearchWithBarrier(int num, int array[], int arraySize) {
+    int i = 0, iterationCount = 0;
+    string result = "Skaitlis masiivaa netika atrasts";
+    array[arraySize] = num;
+
+    while (array[i] != num) {
+        iterationCount++;
+        i++;
+    }
+
+    if (i != arraySize) result = "Skaitlis masiivaa atrasts - vieta ar indeksu " + to_string(i) + "\nIteraaciju skaits: " + to_string(iterationCount) + "\n";
+
+    return result;
+}
+
+string binarySearch(int num, int array[], int arrayLength) {
+    int left = 0 , right = arrayLength - 1, middle, iterationCount = 0;
+
+    while (left <= right)
+    {
+        iterationCount++;
+        middle = (right + left) / 2;
+        if (array[middle] == num) return "Atrada! Index: " + to_string(middle) + "\nIteraaciju skaits: " + to_string(iterationCount) + "\n";
+        else if (array[middle] > num) right = middle - 1;
+        else left = middle + 1;
+    }
+
+    return "Neatrada";
+}
+
+string interpolationSearch(int num, int array[], int arrayLength) {
+    int left = 0, right = arrayLength - 1, pos, iterationCount = 0;
+
+    while (left <= right)
+    {
+        iterationCount++;
+        pos = left + (num - array[left])*(right - left)/(array[right] - array[left]);
+        if (array[pos] == num) return "Atrada! Index: " + to_string(pos) + "\nIteraaciju skaits: " + to_string(iterationCount) + "\n";
+        else if (array[pos] > num) right = pos - 1;
+        else left = pos + 1;
+    }
+
+    return "Neatrada";
+}
+
+
+int main()
+{
+    int arraySize, searchedNum;
+    int numArray[N];
+
+    cout << "Ievadi masiiva izmeeru: ";
+    cin >> arraySize;
+
+    bool flag = false;
+    int lastVal = 0;
+    for (int i = 0; i < arraySize; i++) {
+        if (flag) lastVal += 2;
+        else lastVal += 5;
+        numArray[i] = lastVal;
+    }
+
+    cout << "\nMasiivs: ";
+    for (int i = 0; i < arraySize; i++) cout << " " << numArray[i];
+
+    cout << "\nIevadi mekleejamo skaitli: ";
+    cin >> searchedNum;
+
+    cout << endl << linearSearch(searchedNum, numArray, arraySize) << endl;
+    cout << endl << linearSearchWithBarrier(searchedNum, numArray, arraySize) << endl;
+    cout << endl << binarySearch(searchedNum, numArray, arraySize) << endl;
+    cout << endl << interpolationSearch(searchedNum, numArray, arraySize);
+
+    return 0;
+}
