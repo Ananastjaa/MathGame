@@ -1,0 +1,37 @@
+// BinaraisFails.cpp 
+
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int i, n;
+    cout << "Cik skaitļu būs binārā failā:\n"; cin >> n;
+
+    //ierakstīšana
+    ofstream f1;
+    f1.open("skaitli.bin", ios::binary);
+
+    if (!f1) { cerr << "Nevarēja atvērt failu!"; };
+
+    for (i = 1;i <= n;i++) { f1.write((char*)&i, sizeof(int)); }
+
+    cout << "Fails tika izveidots!";
+    f1.close();
+
+    //nolasīšana
+    ifstream f2;
+    f2.open("skaitli.bin", ios::binary);
+
+    if (!f2) { cerr << "Nevarēja atvērt failu!"; }; 
+
+    f2.seekg(0, ios::end); //aizgājām līdz faila beigām
+    int n2 = f2.tellg() / sizeof(int); //skaitļu skaits failā
+
+    cout << "Fails tika nolasīts!";
+    f2.close();
+
+    return 0;
+}
