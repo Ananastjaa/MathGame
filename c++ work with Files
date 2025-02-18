@@ -1,0 +1,220 @@
+// BinaraisFails.cpp
+
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <string>
+using namespace std;
+
+#define NFIELD 4
+#define MAXW 128
+
+int main(int argc, char** argv) {
+
+    int a = 0, d = 8;
+    double b = 0.9, c = 2.1;
+    char comma;
+
+    fstream f("file.csv", ios::out);
+    if (!f.is_open()) {
+        cout << "error: file open failed " << argv[1] << ".\n";
+        return 1;
+    }
+
+    f << a << ',';
+    f << b << ',';
+    f << c;
+    f << d;
+
+    f.close();
+
+
+
+    fstream f2("file.csv", ios::in);
+    if (!f2.is_open()) {
+        cout << "error: file open failed " << argv[1] << ".\n";
+        return 1;
+    }
+
+    string line;
+    while (!f2.fail() || !f2.eof()) {          /* loop continually */
+        getline(f2, line);
+        string novads = line.substr(0, line.find(','));
+        string peopleCount = line.substr(line.find(','), line.length() - line.find(','));
+
+        cout << line;
+    }
+    f2.close();
+
+
+}
+
+//int main()
+//{
+//    int numCount;
+//    cout << "Cik skaitlu bus binaaraajaa failaa:\n"; cin >> numCount;
+//
+//    ofstream f1;
+//
+//    //ierakstisana no konsoles
+//    f1.open("skaitli.bin", ios::binary);
+//
+//    if (!f1) { cout << endl << "Nevareeja atveert failu!"; };
+//    int num;
+//
+//    for (int i = 1;i <= numCount;i++)
+//    {
+//        cout << endl << "Ievadi skaili: ";
+//        cin >> num;
+//        f1.write((char*)&num, sizeof(int));
+//    }
+//
+//    f1.close();
+//
+//    //nolasīšana
+//    ifstream f2;
+//    f2.open("skaitli.bin", ios::binary);
+//
+//    if (!f2) { cout << "Nevareeja atveert failu!"; };
+//
+//    f2.seekg(0, ios::end); //aizgājām līdz faila beigām
+//    int n2 = f2.tellg() / sizeof(int); //skaitļu skaits failā
+//    cout << endl << endl << "failaa ir " << n2 << " skaitli";
+//    f2.seekg(0, ios::beg);
+//    int x, sum = 0;
+//    cout << endl << "Failaa ir skaitli: ";
+//    for (int i = 0; i < n2; i++)
+//    {
+//        f2.read((char*)&x, sizeof(int));
+//        cout <<x<<" ";
+//        sum += x;
+//    }
+//
+//    double averange = (double)sum / numCount;
+//
+//    cout << endl <<"Fails tika nolasiits!";
+//    cout << endl << "Skaitlu summa: " << sum;
+//    cout << endl << "Skaitlu vid. aritm.: " << averange;
+//    f2.close();
+//
+//    // papildinaasana
+//    f1.open("skaitli.bin", ios::app | ios::binary );
+//
+//    int intAverange = (int)averange;
+//    f1.write((char*)&sum, sizeof(int));
+//    f1.write((char*)&intAverange, sizeof(int));
+//
+//    f1.close();
+//
+//    cout << endl << endl << "Fails tika papildinaats";
+//
+//    // veel viena nolasiisana
+//    f2.open("skaitli.bin", ios::binary);
+//
+//    if (!f2) { cout << "Nevareeja atveert failu!"; };
+//
+//    f2.seekg(0, ios::end); //aizgājām līdz faila beigām
+//    n2 = f2.tellg() / sizeof(int);
+//    f2.seekg(0, ios::beg);
+//    int y;
+//    cout << endl << endl << "Failaa kontents: ";
+//    for (int i = 0; i < n2; i++)
+//    {
+//        f2.read((char*)&y, sizeof(int));
+//        cout << y << " ";
+//    }
+//
+//    cout << endl << "Papildinaats fails tika nolasiits!";
+//    f2.close();
+//
+//    return 0;
+//}
+
+//
+//#include <iostream>
+//#include <cstdlib>
+//#include <fstream>
+//#include <string>
+//
+//using namespace std;
+//const int N = 100;
+//
+//void fillFileWithNumbers(string filePath, int count) {
+//	ofstream fileWriter(filePath);
+//
+//	for (int i = 1; i < count; i++) {
+//		fileWriter << i << " ";
+//	}
+//	fileWriter << count;
+//	fileWriter.close();
+//}
+//
+//string getFileContent(string filePath) {
+// 	string result = "", line;
+//	fstream fileReader(filePath, ios::in);
+//
+//	while (getline(fileReader, line)) {
+//		result += line + "\n";
+//	}
+//	fileReader.close();
+//
+//	return result;
+//}
+//
+//void setIntArrayFromFile(string filePath, int array[]) {
+//	fstream fileReader(filePath, ios::in);
+//	string word;
+//	int index = 0;
+//
+//	while (fileReader >> word) {
+//		array[index] = stoi(word);
+//		index++;
+//	}
+//	fileReader.close();
+//}
+//
+//int getSum(int array[], int size) {
+//	int sum = 0;
+//
+//	for (int i = 0; i < size; i++) {
+//		sum += array[i];
+//	}
+//
+//	return sum;
+//}
+//
+//void appendLineToFile(string filePath, string line) {
+//	ofstream fileAppender(filePath, ios::app);
+//	fileAppender << "\n" << line;
+//	fileAppender.close();
+//}
+//
+//int main() {
+//	
+//	string filePath = "myFile.txt";
+//	int size = 20;
+//	int array[N];
+//
+//	cout << "Ievadi ciparu skaitu: ";
+//	cin >> size;
+//
+//	fillFileWithNumbers(filePath, size);
+//	
+//	string fileContent = getFileContent(filePath);
+//	cout << "Faila kontents:\n";
+//	cout << fileContent;
+//	
+//	//aizpildu skaitlu masiivu, apreekinu summu
+//	setIntArrayFromFile(filePath, array);
+//	int sum = getSum(array, size);
+//	cout << endl << "summa: " << sum;
+//
+//	appendLineToFile(filePath, to_string(sum));
+//	
+//	fileContent = getFileContent(filePath);
+//	cout << "\nFaila kontents:\n";
+//	cout << endl << fileContent;
+//
+//	return 0;
+//}
+
