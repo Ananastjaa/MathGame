@@ -91,3 +91,62 @@ int main()
 
     return 0;
 }
+
+
+
+
+#include <iostream>
+
+using namespace std;
+const int N = 50;
+
+void bubbleSort(int arr[], int n);
+void printArray(int arr[], int n);
+
+int main()
+{
+    setlocale(LC_ALL, "en_US.UTF-8");
+
+    int arr[N];
+    int n;
+
+    cout << "Ievadi masīva izmēru: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Iavadi masīva " << i + 1 << ". elementu: ";
+        cin >> arr[i];
+    }
+
+    cout << "Masīvs: ";
+    printArray(arr, n);
+
+    bubbleSort(arr, n);
+
+    cout << "Sakārtots masīvs: ";
+    printArray(arr, n);
+
+    return 0;
+}
+
+void bubbleSort(int arr[], int n)
+{
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1]) swap(arr[j], arr[j + 1]);
+        }
+    }
+}
+
+void printArray(int arr[], int n)
+{
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
