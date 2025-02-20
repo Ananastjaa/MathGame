@@ -150,3 +150,168 @@ void printArray(int arr[], int n)
         cout << arr[i] << " ";
     }
 }
+
+
+
+
+
+
+
+//-------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+const int N = 50;
+
+void shakerSort(int arr[], int n);
+void bubbleSort(int arr[], int n);
+void bubbleSort2(int arr[], int n);
+void printArray(int arr[], int n);
+
+int main()
+{
+    setlocale(LC_ALL, "en_US.UTF-8");
+
+    int arr[N];
+    int n;
+
+    cout << "Ievadi masiva izmeru: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Iavadi masiva " << i + 1 << ". elementu: ";
+        cin >> arr[i];
+    }
+
+    cout << "Masivs: ";
+    printArray(arr, n);
+
+    shakerSort(arr, n);
+
+    cout << "Sakartots masivs: ";
+    printArray(arr, n);
+
+    //bubbleSort(arr, n);
+
+    //cout << "Sakārtots masivs no kreisas uz labo pusi: ";
+    //printArray(arr, n);
+
+    //bubbleSort2(arr, n);
+
+    //cout << endl << "Sakartots masivs no labas uz kreiso pusi: ";
+    //printArray(arr, n);
+
+    return 0;
+}
+
+void shakerSort(int arr[], int n)
+{
+    int i, j, iterCount = 0, comperisonCount = 0, swapCount = 0;
+    bool goRight = true , changed = true;
+
+    for (i = 0; i < n && changed; i++)
+    {
+        changed = false;
+        if (goRight)
+        {
+            for (i = 0; i < n - iterCount; i++)
+            {
+                for (j = 0; j < n - i - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        swap(arr[j], arr[j + 1]);
+                        swapCount++;
+                        changed = true;
+                    }
+                    comperisonCount++;
+                }
+                printArray(arr, n);
+            }
+        }
+        else 
+        {
+            for (i = n - 1; i >= 0 + iterCount; i--)
+            {
+                for (j = n - 1; j > n - i - 1; j--)
+                {
+                    if (arr[j] < arr[j - 1])
+                    {
+                        swap(arr[j], arr[j - 1]);
+                        swapCount++;
+                        changed = true;
+                    }
+                    comperisonCount++;
+                }
+                printArray(arr, n);
+            }
+        }
+        iterCount++;
+        goRight = !goRight;
+    }
+
+    cout << endl << "salidzinajumu skaits: " << comperisonCount << " apmainu skaits: " << swapCount << endl;
+}
+
+void goRight()
+{
+
+}
+
+void goLeft()
+{
+
+}
+
+void bubbleSort(int arr[], int n)
+{
+        int i, j;
+    
+        bool changed = true;
+        for (i = 0; i < n && changed; i++)
+        {
+            changed = false;
+            for (j = 0; j < n - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    swap(arr[j], arr[j + 1]);
+                    changed = true;
+                }
+            }
+            printArray(arr, n);
+        }
+}
+
+void bubbleSort2(int arr[], int n)
+{
+    int i, j;
+    bool changed = true;
+
+    cout << endl;
+    for (i = n - 1; i >= 0 && changed; i--)
+    {
+        changed = false;
+        for (j = n - 1; j > n-i-1; j--)
+        {
+            if (arr[j] < arr[j - 1])
+            {
+                swap(arr[j], arr[j - 1]);
+                changed = true;
+            }
+        }
+        printArray(arr, n);
+    }
+}
+
+void printArray(int arr[], int n)
+{
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
